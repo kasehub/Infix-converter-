@@ -1,0 +1,12 @@
+function infixToPrefix(infix):
+    // Step 1: Reverse the infix string
+    rev = reverse(infix)
+    // Step 2: Swap '(' and ')'
+    for i in 0 to length(rev)-1:
+        if rev[i] == '(' → rev[i] = ')'
+        else if rev[i] == ')' → rev[i] = '('
+    // Step 3: Convert modified rev to postfix
+    postRev = infixToPostfix(rev)
+    // Step 4: Reverse the result
+    prefix = reverse(postRev)
+    return prefix

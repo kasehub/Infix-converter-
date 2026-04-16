@@ -1,0 +1,8 @@
+function precedence(op):
+    if op is '^' → return 3
+    if op is '*' or '/' → return 2
+    if op is '+' or '-' → return 1
+    return 0
+
+function isOperator(ch):
+    return ch in {'+','-','*','/','^'}

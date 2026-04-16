@@ -1,0 +1,19 @@
+function infixToPostfix(infix):
+    stack = empty stack
+    output = empty string
+    for each character ch in infix:
+        if ch is letter or digit:          // operand
+            output.append(ch)
+        else if ch == '(':
+            stack.push(ch)
+        else if ch == ')':
+            while stack not empty and top != '(':
+                output.append(stack.pop())
+            stack.pop()                    // remove '('
+        else if isOperator(ch):
+            while stack not empty and precedence(stack.top) >= precedence(ch):
+                output.append(stack.pop())
+            stack.push(ch)
+    while stack not empty:
+        output.append(stack.pop())
+    return output
